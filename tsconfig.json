@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "lib": ["esnext", "dom"],
+        "target": "es2017",
+        "jsx": "react",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "outDir": "build"
+    },
+    "include": ["src/**/*"]
+}
