@@ -3,6 +3,7 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import React, { useState } from 'react';
+import { Table, Column, AutoSizer, List } from 'react-virtualized';
 import { Global, keyframes, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { scrape } from '../../lib/pastebin';
@@ -10,7 +11,6 @@ import { testSpotify, SpotifyJobResult } from '../../lib/spotify';
 import { NetflixJobResult, testNetflix } from '../../lib/netflix';
 import { ProgressInfo, TestJobOptions } from '../../lib/types';
 import { WindowTitlebar, WindowTitle, WindowControls } from './WindowTitlebar';
-import { Table, Column, AutoSizer, List } from 'react-virtualized';
 
 const Button = styled.button`
     padding: 7px 14px;
@@ -234,7 +234,7 @@ export const App = () => {
             />
 
             <WindowTitlebar height='40px'>
-                <WindowTitle>Account Scraper v0.0.1</WindowTitle>
+                <WindowTitle>Account Scraper v0.0.2</WindowTitle>
                 <WindowControls controls={['minimize', 'maximize', 'close']} />
             </WindowTitlebar>
 
