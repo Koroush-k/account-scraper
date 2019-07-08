@@ -6,13 +6,13 @@ This app allows you find spotify premium and netflix accounts for free. It works
 
 ## Downloads x64
 
-[Windows - Portable (.exe)](https://github.com/redabacha/account-scraper/releases/download/v0.0.1/Account.Scraper.0.0.1.exe)
+[Windows - Portable (.exe)](https://github.com/redabacha/account-scraper/releases/download/v0.0.2/Account.Scraper.0.0.2.exe)
 
-[macOS (.dmg)](https://github.com/redabacha/account-scraper/releases/download/v0.0.1/Account.Scraper-0.0.1.dmg)
-[macOS (.zip)](https://github.com/redabacha/account-scraper/releases/download/v0.0.1/Account.Scraper-0.0.1-mac.zip)
+[macOS (.dmg)](https://github.com/redabacha/account-scraper/releases/download/v0.0.2/Account.Scraper-0.0.2.dmg)
+[macOS (.zip)](https://github.com/redabacha/account-scraper/releases/download/v0.0.2/Account.Scraper-0.0.2-mac.zip)
 
-[Linux (.snap)](https://github.com/redabacha/account-scraper/releases/download/v0.0.1/account-scraper_0.0.1_amd64.snap)
-[Linux (.AppImage)](https://github.com/redabacha/account-scraper/releases/download/v0.0.1/account.Scraper.0.0.1.AppImage)
+[Linux (.snap)](https://github.com/redabacha/account-scraper/releases/download/v0.0.2/account-scraper_0.0.2_amd64.snap)
+[Linux (.AppImage)](https://github.com/redabacha/account-scraper/releases/download/v0.0.2/account.Scraper.0.0.2.AppImage)
 
 ## Options
 
