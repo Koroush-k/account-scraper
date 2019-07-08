@@ -24,6 +24,7 @@ export async function testSpotify(opts: TestJobOptions<SpotifyJobResult>) {
     for (let i = 0; i < accounts.length; i++) {
         try {
             const [email, password] = accounts[i];
+            console.log(email, password);
 
             if (!email || !password) {
                 console.warn(
@@ -58,25 +59,12 @@ export async function testSpotify(opts: TestJobOptions<SpotifyJobResult>) {
             await page.click('button');
 
             const res = await page.waitForResponse(
-                `${SPOTIFY_ACCOUNTS_URL}/api/login`,
+                `${SPOTIFY_ACCOUNTS_URL}/password/login`,
                 { timeout: 8000 }
             );
 
             if (!res.ok()) {
-                try {
-                    const { error } = await res.json();
-
-                    if (error !== 'errorInvalidCredentials') {
-                        console.log('unexpected login failure: %O', {
-                            email,
-                            password,
-                            error
-                        });
-                    }
-                } catch (e) {
-                    console.log('failed to login %O, bad response: %O', e, res);
-                }
-
+                console.log('failed to login, bad response: %O', res);
                 continue;
             }
 
@@ -86,14 +74,15 @@ export async function testSpotify(opts: TestJobOptions<SpotifyJobResult>) {
             const { country, productName, productDesc } = await page.evaluate(
                 () => {
                     const productDescEl = document.querySelector(
-                        '.subscription > p'
+                        '.PaymentModule__note--H4sEw'
                     ) as HTMLElement;
 
                     return {
-                        country: document.getElementById('card-profile-country')
-                            .innerText,
+                        country: (document.querySelector(
+                            '.ProfileSection__table--3LO1m tr:last-child p'
+                        ) as HTMLElement).innerText,
                         productName: (document.querySelector(
-                            '.subscription > h3'
+                            '.PlanHeader__productName--2stvf'
                         ) as HTMLElement).innerText,
                         productDesc: productDescEl
                             ? productDescEl.innerText
@@ -102,9 +91,11 @@ export async function testSpotify(opts: TestJobOptions<SpotifyJobResult>) {
                 }
             );
 
+            console.log(country, productName, productDesc);
+
             if (
                 !productName.includes('Free') &&
-                !productDesc.includes('member of a family plan') &&
+                !productDesc.includes('member of a Family plan') &&
                 !productDesc.includes('plan is associated')
             ) {
                 const result = {
